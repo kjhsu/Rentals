@@ -1,0 +1,27 @@
+body {
+  font: 14px/22px "Microsoft Yahei", "Helvetica Neue", "STHeiti", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 2em;
+}
+
+.clear {
+  line-height: 0px;
+  clear:both;
+}
+
+.hidden {
+  display:none;
+}
+

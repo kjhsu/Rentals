@@ -1,0 +1,31 @@
+.listings
+  一共有#{@listings.count}个住所
+  .sort_by
+    %form(action='/search' method="GET")
+      %input{type: "hidden", name: "city", value: params[:city] }
+      %input{type: "hidden", name: "start_date", value: params[:start_date] }
+      %input{type: "hidden", name: "end_date", value: params[:end_date] }
+      %input{type: "hidden", name: "num_guests", value: params[:num_guests] }
+      %select{name: "sort_by"}
+        - if !params[:sort_by] || params[:sort_by]
+          %option(value=0 selected) Recommended
+        - else
+          %option(value=0) Recommended
+        - if params[:sort_by] == '1'
+          %option(value= 1 selected) Price
+        - else
+          %option(value= 1) Price
+        - if params[:sort_by] == '2'
+          %option(value= 2 selected) Newest
+        - else
+          %option(value= 2) Newest
+      %input{type: "submit"}
+  - @listings.each do |listing|
+    .listing
+      .photo
+      .details
+        .title= link_to listing.title, listing_path(listing)
+      .price
+        $#{listing.daily_price}
+  .foot
+    = will_paginate @listings

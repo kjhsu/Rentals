@@ -1,0 +1,53 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.listings {
+  width: 75%;
+  .listing {
+    height: 120px;
+    margin-top: 10px;
+    background: #f0f0f0;
+    clear: both;
+    .photo {
+      width: 200px;
+      height: 120px;
+      background: #909090;
+      float: left;
+    }
+    .details {
+      padding: 5px 10px;
+      float: left;
+      height: 110px;
+    }
+    .price {
+      padding: 10px;
+      float: right;
+    }
+  }
+}
+
+.listing_left {
+  width: 75%;
+  float: left;
+}
+
+.listing_right {
+  width: 25%;
+  float: right;
+  .details {
+    table{
+      width: 96%;
+      padding: 10px 2%;
+      td {
+        width: 50%;
+      }
+      .label {
+        text-align: left;
+      }
+      .value {
+        text-align: right;
+      }
+    }
+  }
+}

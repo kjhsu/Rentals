@@ -1,0 +1,27 @@
+.listing_left
+  %h1= @listing.title
+.listing_right
+  .details
+    .label 房屋信息
+    %table
+      %tr
+        %td.label 房屋类型
+        %td.value= @listing.type
+      %tr
+        %td.label 房间数
+        %td.value= @listing.rooms
+      %tr
+        %td.label 押金
+        %td.value $#{@listing.deposit}
+      %tr
+        %td.label 附加费
+        %td.value $#{@listing.extra_cost}
+      %tr
+        %td.label 退订策略
+        %td.value= @listing.cancellation_policy.name
+  .amenities
+    .label 提供
+    %ul
+      - @listing.amenities.each do |amenity|
+        %li= amenity.name
+

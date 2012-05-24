@@ -16,16 +16,15 @@ group :assets do
   gem 'uglifier'
 end
 
+
 gem 'jquery-rails'
+gem 'haml'
+gem 'devise'
+gem 'will_paginate'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
 
 group :test do
   # Pretty printed test output

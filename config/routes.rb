@@ -1,4 +1,14 @@
 Rentals::Application.routes.draw do
+
+  # User authentications
+  devise_for :users
+
+  resources :listings
+
+  match "search" => "home#search"
+
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

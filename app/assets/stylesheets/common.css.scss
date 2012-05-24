@@ -1,0 +1,44 @@
+$white: #ffffff;
+$blue: #5f9fff;
+
+// Dimensions
+$width: 940px;
+$col_height: 379px;
+$col_width: 30px;
+$col_padding: 5px;
+
+// Fonts
+$ms_yahei: 'Microsoft Yahei';
+$heiti: 'Heiti';
+
+// Mixins
+@mixin shadow($x: 0px, $y: 0px, $size: 5px, $color: #cccccc) {
+  -webkit-box-shadow: $x $y $size $color;
+  -moz-box-shadow: $x $y $size $color;
+  box-shadow: $x $y $size $color;
+  behavior: url(/PIE/PIE.htc);
+}
+
+@mixin rounded_corner($radius: 5px){
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+  behavior: url(/PIE/PIE.htc);
+}
+
+@mixin gradient($from, $to) {
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from($from), to($to));
+  background: -webkit-linear-gradient($from, $to);
+  background: -moz-linear-gradient($from, $to);
+  background: -ms-linear-gradient($from, $to);
+  background: -o-linear-gradient($from, $to);
+  background: linear-gradient($from, $to);
+  -pie-background: linear-gradient($from, $to);
+  behavior: url(/PIE/PIE.htc);
+}
+
+@mixin opacity($percent: 0.5){
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+ $percent * 100 +")";
+  filter: alpha(opacity = $percent * 100);
+  opacity: $percent;
+}
+

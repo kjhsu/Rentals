@@ -1,0 +1,29 @@
+!!! html
+%html
+  %head
+    %title Rentals
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .wrapper
+      .header
+        .logo
+          %h1= link_to "Rentals", root_path
+          %h2 Your second homes on vacation
+        %ul.links
+          - if user_signed_in?
+            %li= link_to "退出", destroy_user_session_path, :method => :delete
+          - else
+            %li= link_to "注册", new_user_registration_path
+            %li= link_to "登陆", new_user_session_path
+          %li= link_to "发布房屋", '#'
+          %li= link_to "帮助", '#'
+
+      .content
+        %p.notice= notice
+        %p.alert= alert
+        = yield
+
+      .footer
+        Copyright Rentals ©2012
