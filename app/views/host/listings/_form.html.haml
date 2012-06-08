@@ -1,0 +1,47 @@
+= form_for(@listing) do |f|
+  - if @listing.errors.any?
+    #error_explanation
+      %h2
+        #{pluralize(@listing.errors.count, "error")} prohibited this sample from being saved:
+
+      %ul
+        - @sample.errors.full_messages.each do |msg|
+          %li= msg
+
+  %table#actions
+    %tr
+      %th Room
+    %tr
+      %th= f.label :max_guests
+      %td= f.text_field :max_guests
+    %tr
+      %th= f.label :num_bedrooms
+      %td= f.text_field :num_bedrooms
+    %tr
+      %th= f.label :num_bathrooms
+      %td= f.text_field :num_bathrooms
+    %tr
+      %th Pricing
+    %tr
+      %th= f.label :daily_price
+      %td= f.text_field :daily_price
+    %tr
+      %th= f.label :weekly_price
+      %td= f.text_field :weekly_price
+    %tr
+      %th= f.label :monthly_price
+      %td= f.text_field :monthly_price
+    %tr
+      %th Policy
+    %tr
+      %th= f.label :checkin
+      %td= f.text_field :checkin
+    %tr
+      %th= f.label :checkout
+      %td= f.text_field :checkout
+    %tr
+      %th= f.label :deposit
+      %td= f.text_field :deposit
+    %tr
+      %th
+      %td= f.submit

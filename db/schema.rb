@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523201156) do
+ActiveRecord::Schema.define(:version => 20120607135159) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(:version => 20120523201156) do
   create_table "bookings", :force => true do |t|
     t.integer  "user_id"
     t.integer  "listing_id"
-    t.date     "begin_date"
-    t.date     "end_date"
+    t.date     "checkin"
+    t.date     "checkout"
+    t.integer  "num_guests"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,7 +55,8 @@ ActiveRecord::Schema.define(:version => 20120523201156) do
     t.string   "title"
     t.integer  "property_type"
     t.integer  "max_guests"
-    t.integer  "rooms"
+    t.integer  "num_bedrooms"
+    t.integer  "num_bathrooms"
     t.boolean  "certified"
     t.integer  "extra_cost"
     t.integer  "daily_price"
@@ -92,6 +94,15 @@ ActiveRecord::Schema.define(:version => 20120523201156) do
     t.integer  "communication"
     t.integer  "location"
     t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "time_blocks", :force => true do |t|
+    t.date     "begin_date", :default => '2012-01-01'
+    t.date     "end_date",   :default => '2030-01-01'
+    t.boolean  "is_free",    :default => true
+    t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

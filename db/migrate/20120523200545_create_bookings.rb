@@ -3,8 +3,9 @@ class CreateBookings < ActiveRecord::Migration
     create_table :bookings do |t|
       t.integer :user_id
       t.integer :listing_id
-      t.date :begin_date
-      t.date :end_date
+      t.date :checkin
+      t.date :checkout
+      t.integer :num_guests
 
       t.timestamps
     end

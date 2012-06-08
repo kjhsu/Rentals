@@ -1,0 +1,30 @@
+.listing_left
+  %h1= @listing.title
+.listing_right
+  .details
+    .label 房屋信息
+    %table
+      %tr
+        %td.label 房屋类型
+        %td.value= @listing.type
+      %tr
+        %td.label 卧室
+        %td.value= @listing.num_bedrooms
+      %tr
+        %td.label 卫生间
+        %td.value= @listing.num_bathrooms
+      %tr
+        %td.label 顾客数
+        %td.value= @listing.max_guests
+      %tr
+        %td.label 押金
+        %td.value $#{@listing.deposit}
+      %tr
+        %td.label 附加费
+        %td.value $#{@listing.extra_cost}
+  .amenities
+    .label 提供
+    %ul
+      - @listing.amenities.each do |amenity|
+        %li= amenity.name
+

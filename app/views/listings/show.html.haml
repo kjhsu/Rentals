@@ -1,6 +1,31 @@
 .listing_left
   %h1= @listing.title
+  .calendar
+    :plain
+      #{ calendar(year: 2012, month: 6, first_day_of_week: 1) do |date|
+          if date < Date.today
+            [date.mday, :class => 'past']
+          elsif @listing.booked_dates(2012, 6).include?(date)
+            [date.mday, :class => 'filled']
+          else
+            [date.mday, :class => 'available']
+          end
+        end
+      }
 .listing_right
+  .book
+    = form_for(Booking.new) do |f|
+      %table
+        = f.hidden_field :listing_id, value: @listing.id
+        %tr
+          %th= f.label :checkin
+          %td= f.text_field :checkin, id: "start_date"
+        %tr
+          %th= f.label :checkout
+          %td= f.text_field :checkout, id: "end_date"
+        %tr
+          %th
+          %td= f.submit
   .details
     .label 房屋信息
     %table
@@ -8,17 +33,20 @@
         %td.label 房屋类型
         %td.value= @listing.type
       %tr
-        %td.label 房间数
-        %td.value= @listing.rooms
+        %td.label 卧室
+        %td.value= @listing.num_bedrooms
+      %tr
+        %td.label 卫生间
+        %td.value= @listing.num_bathrooms
+      %tr
+        %td.label 顾客数
+        %td.value= @listing.max_guests
       %tr
         %td.label 押金
         %td.value $#{@listing.deposit}
       %tr
         %td.label 附加费
         %td.value $#{@listing.extra_cost}
-      %tr
-        %td.label 退订策略
-        %td.value= @listing.cancellation_policy.name
   .amenities
     .label 提供
     %ul

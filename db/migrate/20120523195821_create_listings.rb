@@ -3,10 +3,11 @@ class CreateListings < ActiveRecord::Migration
     create_table :listings do |t|
       t.integer :user_id
       t.integer :neighborhood_id
-      t.string :title
+      t.string  :title
       t.integer :property_type
       t.integer :max_guests
-      t.integer :rooms
+      t.integer :num_bedrooms
+      t.integer :num_bathrooms
       t.boolean :certified
       t.integer :extra_cost
       t.integer :daily_price

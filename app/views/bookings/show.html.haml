@@ -1,0 +1,15 @@
+%h2 Booking #{@booking.id}
+
+%table
+  %tr
+    %th checkin
+    %td= @booking.checkin
+  %tr
+    %th checkout
+    %td= @booking.checkout
+  %tr
+    %th num_guests
+    %td= @booking.num_guests
+  %tr
+    %th listing
+    %td= link_to "Listing #{@booking.listing_id}", @booking.listing

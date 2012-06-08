@@ -3,7 +3,11 @@ Rentals::Application.routes.draw do
   # User authentications
   devise_for :users
 
-  resources :listings
+  resources :listings, :bookings
+
+  namespace :host do
+    resources :listings
+  end
 
   match "search" => "home#search"
 

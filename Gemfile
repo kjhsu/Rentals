@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'devise'
 gem 'will_paginate'
+gem 'calendar_helper'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,4 +32,9 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'rspec-rails'
+  gem 'guard-rspec', '~> 0.4.4'               # auto run rspec upon file changes
+  gem 'database_cleaner', '~> 0.6.7'          # cucumber rails needs this
+  gem 'factory_girl_rails', :require => false # generate model during testing
+  gem 'spork', '~> 0.9.0.rc9'                 # preload fixed rails resouces
 end
